@@ -1,0 +1,1 @@
+The package was created with the purpose of learning how packages work.
