@@ -1,6 +1,7 @@
 import numpy as np
 from PIL import Image
 import os
+import sys
 
 
 def open_img(path: str) -> Image.Image:
@@ -47,4 +48,23 @@ def ft_load(path: str) -> np.ndarray:
         f"The shape of Image is: {img.size[1]},{img.size[0]}, {img.layers}"
         )
     print("Image format: ", img.format)
+    print(np.array(img))
     return np.array(img)
+
+
+def main():
+    try:
+        if len(sys.argv) == 1:
+            raise AssertionError("Program accepts image as an input")
+        if len(sys.argv) > 2:
+            raise AssertionError("Program accepts image as an input")
+
+        path = sys.argv[1]
+        img_data = ft_load(path)
+        print(img_data)
+    except Exception as e:
+        print("Error:", e)
+
+
+if __name__ == "__main__":
+    main()
